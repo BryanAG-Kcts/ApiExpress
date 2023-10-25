@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const debug = require('debug')('app:main')
 
 const { config } = require('./src/config/configIndex')
@@ -8,6 +9,7 @@ const { avaliableRoutes, invalidRoutes } = require('./src/indexRoutes/indexRoute
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 avaliableRoutes(app)
 usersApi(app)
 productsApi(app)
